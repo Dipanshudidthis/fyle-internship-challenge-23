@@ -76,7 +76,7 @@
           </div>
         </div>
       </div>
-      <div class="labells" style="display: flex;justify-content: center;">
+      <div class="labells" style="display: flex;justify-content: center;" *ngIf="userrepodata!='NO' && !loader">
   
         <label for="pagesize">Items per page:</label>
   
@@ -89,7 +89,14 @@
   
       </div>
       <!-- Repositories -->
-  
+      <div class="" *ngIf="userrepodata=='NO' && !loader">
+        <div class="rounded-lg p-8 text-center">
+          <h1 class="mb-4 text-4xl font-bold">Repositories Not Found</h1>
+          <p class="text-gray-600">This User has no Repositories!!</p>
+          <a href="/" class="mt-4 inline-block rounded bg-blue-500 px-4 py-2 font-semibold text-white hover:bg-blue-600"> Go
+            back to Home </a>
+        </div>
+      </div>
       <div class="reposss" *ngIf="userrepodata && !loader">
         <div class="wrap" style="display: flex;">
           <div class="box"
@@ -117,7 +124,7 @@
   
   
       </div>
-      <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="pageChange($event)" style="display: flex;justify-content: center;"></pagination-controls>
+      <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="pageChange($event)" style="display: flex;justify-content: center;" *ngIf="userrepodata!='NO' && !loader"></pagination-controls>
   
   
   

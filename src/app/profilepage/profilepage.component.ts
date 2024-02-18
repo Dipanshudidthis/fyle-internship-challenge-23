@@ -96,8 +96,9 @@ export class ProfilepageComponent implements OnChanges {
                 console.log(this.userrepodata);
               },
               error: (err) => {
-
-                console.log("Error")
+                this.userrepodata = "NO"
+                this.loader = false;
+                console.log("Error11")
 
               }
             }
